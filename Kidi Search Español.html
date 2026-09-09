@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kidi Search 🌈</title>
+<style>
+:root{--red:#ff4b4b;--orange:#ff922b;--yellow:#ffd43b;--green:#51cf66;--blue:#339af0;--purple:#9775fa;--ink:#263238}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Arial,sans-serif;color:var(--ink);background:linear-gradient(135deg,#fff7d6,#e9f7ff 45%,#f7ecff)}
+header{padding:22px 18px 12px;text-align:center}.logo{font-size:clamp(2rem,6vw,3.7rem);margin:0;font-weight:900}.subtitle{font-weight:700}
+.search{width:min(720px,94%);margin:auto;display:flex;background:white;border-radius:22px;padding:7px;box-shadow:0 8px 24px #52616b33}
+.search input{flex:1;border:0;outline:0;padding:14px 16px;font-size:1.05rem;border-radius:16px}
+.search button{border:0;border-radius:16px;padding:0 22px;font-size:1.1rem;font-weight:800;color:white;cursor:pointer;background:linear-gradient(90deg,var(--blue),var(--purple))}
+main{width:min(1000px,94%);margin:24px auto 42px}h2{text-align:center}
+.shortcuts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px}
+.card{min-height:165px;text-decoration:none;color:white;border-radius:28px;padding:22px 15px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;box-shadow:0 10px 0 #00000018,0 18px 25px #00000014;border:4px solid #ffffffaa;transition:.2s}
+.card:hover{transform:translateY(-5px)}.icon{font-size:3.7rem;margin-bottom:8px}.name{font-size:1.15rem;font-weight:900}
+.red{background:linear-gradient(135deg,#ff6b6b,var(--red))}.orange{background:linear-gradient(135deg,#ffa94d,var(--orange))}.yellow{background:linear-gradient(135deg,#ffe066,var(--yellow));color:#5b5000}.green{background:linear-gradient(135deg,#8ce99a,var(--green))}.blue{background:linear-gradient(135deg,#74c0fc,var(--blue))}.purple{background:linear-gradient(135deg,#b197fc,var(--purple))}
+.parents{margin:28px auto 0;width:min(760px,100%);background:white;border-radius:28px;box-shadow:0 12px 28px #52616b22;padding:20px;border:4px dashed var(--purple)}
+.parents button{display:block;margin:auto;border:0;border-radius:18px;padding:12px 28px;color:white;background:linear-gradient(90deg,var(--red),var(--orange),var(--yellow),var(--green),var(--blue),var(--purple));font-size:1.1rem;font-weight:900;cursor:pointer}
+.notice{display:none;margin:18px auto 3px;padding:20px;border-radius:20px;background:#f5f0ff;font-size:1.05rem;font-weight:700;line-height:1.5;text-align:center}.notice.show{display:block}
+footer{text-align:center;padding:18px;font-weight:700}.rainbow{font-size:1.3rem;letter-spacing:5px}
+</style>
+</head>
+<body>
+<header>
+<h1 class="logo">🌈 Kidi Search 🔎</h1>
+<p class="subtitle">¡Explora, aprende y descubre!</p>
+<form class="search" id="searchForm">
+<input id="query" type="search" placeholder="¿Qué quieres buscar?" aria-label="Buscar en Google">
+<button type="submit">🔍 Buscar</button>
+</form>
+</header>
+<main>
+<h2>🚀 Accesos directos</h2>
+<section class="shortcuts">
+<a class="card red" href="https://es.wikipedia.org/" target="_blank" rel="noopener"><div class="icon">📚</div><div class="name">Wikipedia</div></a>
+<a class="card orange" href="https://www.youtubekids.com/?hl=es" target="_blank" rel="noopener"><div class="icon">▶️</div><div class="name">YouTube Kids</div></a>
+<a class="card yellow" href="https://earth.google.com/web/" target="_blank" rel="noopener"><div class="icon">🌍</div><div class="name">Globo terráqueo<br>físico y político</div></a>
+<a class="card green" href="https://www.eltiempo.es/" target="_blank" rel="noopener"><div class="icon">🌤️</div><div class="name">El Tiempo</div></a>
+<a class="card blue" href="https://translate.google.com/?sl=es&tl=en&op=translate" target="_blank" rel="noopener"><div class="icon">🗣️</div><div class="name">Traducir</div></a>
+<a class="card purple" href="https://www.google.com/search?q=juegos+de+google&hl=es&biw=768&bih=879&sca_esv=5402a0a9251cbe8a&sxsrf=APpeQnvaybP309AJsCJ6HlRFxvIzcsyl8A%3A1788972363958&ei=S42havqMOvyjkdUPpLGb4A" target="_blank" rel="noopener"><div class="icon">🎮</div><div class="name">Juegos</div></a>
+</section>
+<section class="parents">
+<button id="parentsBtn">PADRES</button>
+<div class="notice" id="parentsNotice"><div style="font-size:3rem">🚸</div>Asegúrate de que el contenido que consuman los niños sea apropiado para su edad, o establezca controles parentales.</div>
+</section>
+</main>
+<footer><div class="rainbow">🔴 🟠 🟡 🟢 🔵 🟣</div><p>Kidi Search · Navega y aprende</p></footer>
+<script>
+document.getElementById('searchForm').addEventListener('submit',e=>{e.preventDefault();const q=document.getElementById('query').value.trim();if(q)window.open('https://www.google.com/search?q='+encodeURIComponent(q),'_blank')});
+document.getElementById('parentsBtn').addEventListener('click',()=>document.getElementById('parentsNotice').classList.toggle('show'));
+</script>
+</body>
+</html>
